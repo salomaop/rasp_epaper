@@ -36,7 +36,6 @@ def run():
         drawblack.text((10, 0), msg, font = font20, fill = 0)
         drawred.text((10, 52), msg, font=font20, fill=0)
         epd.display(epd.getbuffer(HRYimage), epd.getbuffer(HBlackimage))
-
         epd.sleep()
 
     except IOError as e:
