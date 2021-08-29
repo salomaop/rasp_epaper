@@ -21,11 +21,14 @@ def run():
         font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
 
         HBlackimage = Image.new('1', (epd.height, epd.width), 255)  # 298*126
+        logging.info("8")
         drawblack = ImageDraw.Draw(HBlackimage)
+        logging.info("9")
         drawblack.text((10, 0), 'Salomao', font = font20, fill = 0)
         drawblack.line((20, 50, 70, 100), fill = 0)
         drawblack.line((70, 50, 20, 100), fill = 0)
         drawblack.rectangle((20, 50, 70, 100), outline = 0)
+        logging.info("10")
         epd.display(epd.getbuffer(HBlackimage))
 
         logging.info("Goto Sleep...")
