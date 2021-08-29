@@ -34,12 +34,10 @@ def run():
 
         HBlackimage = Image.new('1', (epd.height, epd.width), 255)  # 298*126
         HRYimage = Image.new('1', (epd.height, epd.width), 255)
-        logging.info("8")
         drawblack = ImageDraw.Draw(HBlackimage)
-        logging.info("9")
         msg = "IP: " + get_ip()
-        drawblack.text((10, 0), 'Salomao', font = font20, fill = 0)
-        logging.info("10")
+        logging.info(msg)
+        drawblack.text((10, 0), msg, font = font20, fill = 0)
         epd.display(epd.getbuffer(HBlackimage), epd.getbuffer(HRYimage))
 
         logging.info("Goto Sleep...")
