@@ -33,13 +33,14 @@ def run():
         font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
 
         HBlackimage = Image.new('1', (epd.height, epd.width), 255)  # 298*126
+        HRYimage = Image.new('1', (epd.height, epd.width), 255)
         logging.info("8")
         drawblack = ImageDraw.Draw(HBlackimage)
         logging.info("9")
         msg = "IP: " + get_ip()
         drawblack.text((10, 0), 'Salomao', font = font20, fill = 0)
         logging.info("10")
-        epd.display(epd.getbuffer(HBlackimage))
+        epd.display(epd.getbuffer(HBlackimage), epd.getbuffer(HRYimage))
 
         logging.info("Goto Sleep...")
         epd.sleep()
