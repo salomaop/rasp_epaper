@@ -17,7 +17,7 @@ def get_ip():
         IP = '0.0.0.0'
     return IP
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.ERROR)
 
 def run():
     try:
