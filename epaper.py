@@ -25,7 +25,7 @@ def run():
         # epd.Clear()
         time.sleep(1)
 
-        font20 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 20)
+        font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
         font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
 
         HBlackimage = Image.new('1', (epd.height, epd.width), 255)
@@ -33,8 +33,8 @@ def run():
         drawblack = ImageDraw.Draw(HBlackimage)
         drawred = ImageDraw.Draw(HRYimage)
         msg = "IP: " + get_ip()
-        drawblack.text((10, 0), msg, font = font20, fill = 0)
-        drawred.text((10, 52), msg, font=font20, fill=0)
+        drawblack.text((10, 0), msg, font = font24, fill = 0)
+        drawred.text((10, 52), msg, font=font24, fill=0)
         epd.display(epd.getbuffer(HRYimage), epd.getbuffer(HBlackimage))
         epd.sleep()
 
