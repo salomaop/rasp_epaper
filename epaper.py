@@ -1,10 +1,22 @@
 import os
-picdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'pic')
+picdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'rasp_epaper/pic')
+print(picdir)
 
 import logging
 from lib.waveshare_epd import epd2in13b_V3
 import time
 from PIL import Image,ImageDraw,ImageFont
+import socket
+
+def get_ip():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        IP = s.getsockname()[0]
+    except Exception:
+        IP = '0.0.0.0'
+    finally:
+        s.close()
+    return IP
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -24,10 +36,8 @@ def run():
         logging.info("8")
         drawblack = ImageDraw.Draw(HBlackimage)
         logging.info("9")
+        msg = "IP: " + get_ip()
         drawblack.text((10, 0), 'Salomao', font = font20, fill = 0)
-        drawblack.line((20, 50, 70, 100), fill = 0)
-        drawblack.line((70, 50, 20, 100), fill = 0)
-        drawblack.rectangle((20, 50, 70, 100), outline = 0)
         logging.info("10")
         epd.display(epd.getbuffer(HBlackimage))
 
