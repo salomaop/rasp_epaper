@@ -9,8 +9,10 @@ from PIL import Image,ImageDraw,ImageFont
 import socket
 
 def get_ip():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect(("8.8.8.8", 80))
     try:
-        IP = socket.gethostbyname(socket.gethostname())
+        IP = s.getsockname()[0]
     except Exception:
         IP = '0.0.0.0'
     return IP
