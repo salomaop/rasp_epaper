@@ -22,7 +22,7 @@ def run():
     try:
         epd = epd2in13b_V3.EPD()
         epd.init()
-        # epd.Clear()
+        epd.Clear()
         time.sleep(1)
 
         font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
