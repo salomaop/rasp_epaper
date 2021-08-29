@@ -26,7 +26,7 @@ def run():
         epd = epd2in13b_V3.EPD()
         logging.info("init and Clear")
         epd.init()
-        epd.Clear()
+        # epd.Clear()
         time.sleep(1)
         font20 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 20)
         font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
